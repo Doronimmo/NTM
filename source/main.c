@@ -168,10 +168,10 @@ int main(int argc, char **argv)
 
 				for (int i = 0; i < sizeof(tidValues)/sizeof(tidValues[0]); i++)
 				{
-					if (fseek(tmd, tidValues[i][0], SEEK_SET) == 0)
+					if (fseek(file, tidValues[i][0], SEEK_SET) == 0)
 					{
 						u32 tidVal;
-						fread(&tidVal, sizeof(u32), 1, tmd);
+						fread(&tidVal, sizeof(u32), 1, file);
 						if (tidVal == tidValues[i][1])
 						{
 							unlaunchPatches = true;
@@ -297,4 +297,5 @@ void clearScreen(PrintConsole* screen)
 	consoleSelect(screen);
 	consoleClear();
 }
+
 
